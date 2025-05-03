@@ -1,16 +1,15 @@
 
 import {
-  Python,
-  Sql,
-  Spark,
-  Tensorflow,
-  Pytorch,
-  Langchain,
-  Aws,
-  Azure,
-  Tableau,
+  Code,
+  Database,
+  ServerCog,
+  Brain,
+  Atom,
+  MessageSquareCode,
+  Cloud,
+  Network,
+  BarChart4,
   Github,
-  Linkedin
 } from "lucide-react";
 
 interface Skill {
@@ -20,15 +19,15 @@ interface Skill {
 }
 
 const skillsData: Skill[] = [
-  { name: 'Python', icon: Python, category: 'languages' },
-  { name: 'SQL', icon: Sql, category: 'languages' },
-  { name: 'Spark', icon: Spark, category: 'frameworks' },
-  { name: 'TensorFlow', icon: Tensorflow, category: 'frameworks' },
-  { name: 'PyTorch', icon: Pytorch, category: 'frameworks' },
-  { name: 'LangChain', icon: Langchain, category: 'frameworks' },
-  { name: 'AWS', icon: Aws, category: 'cloud' },
-  { name: 'Azure', icon: Azure, category: 'cloud' },
-  { name: 'Tableau', icon: Tableau, category: 'tools' },
+  { name: 'Python', icon: Code, category: 'languages' },
+  { name: 'SQL', icon: Database, category: 'languages' },
+  { name: 'Spark', icon: ServerCog, category: 'frameworks' },
+  { name: 'TensorFlow', icon: Brain, category: 'frameworks' },
+  { name: 'PyTorch', icon: Atom, category: 'frameworks' },
+  { name: 'LangChain', icon: MessageSquareCode, category: 'frameworks' },
+  { name: 'AWS', icon: Cloud, category: 'cloud' },
+  { name: 'Azure', icon: Network, category: 'cloud' },
+  { name: 'Tableau', icon: BarChart4, category: 'tools' },
   { name: 'GitHub', icon: Github, category: 'tools' }
 ];
 

@@ -46,7 +46,7 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
       <div className="text-xs text-black flex justify-between items-center gap-1 mt-1">
         <div className="flex items-center gap-1">
           <BookOpen className="h-3 w-3" />
-          <span className="text-black">{publication.venue}, {publication.year}</span>
+          <span>{publication.venue}, {publication.year}</span>
         </div>
         {publication.link && (
           <a 
@@ -90,9 +90,7 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
 );
 
 const Publications = () => {
-  // LLM-related images
-  const llmCodeImage = "https://images.unsplash.com/photo-1677442135136-760c813a715a?auto=format&fit=crop&q=80"; // Modern AI/LLM
-  const codeTranslationImage = "https://images.unsplash.com/photo-1607798748738-b15c40d33d57?auto=format&fit=crop&q=80"; // Code translation
+  const llmCodeImage = "https://images.unsplash.com/photo-1498050108023-c5249f4df085";
 
   return (
     <section id="publications" className="py-8 bg-white">
@@ -119,7 +117,7 @@ const Publications = () => {
           </div>
           <div className="rounded-lg overflow-hidden shadow-md">
             <img 
-              src={codeTranslationImage} 
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
               alt="Programming with Large Language Models" 
               className="w-full h-48 object-cover"
             />

@@ -9,46 +9,43 @@ import { ProjectCard } from "./project/ProjectCard";
 const Projects = () => {
   const isMobile = useIsMobile();
   
-  // Add logos and images to projects with more relevant images
+  // Add logos and images to projects
   const enhancedProjects = projects.map(project => {
     if (project.title.includes("AI Copilot") || project.organization?.includes("NASA")) {
       return {
         ...project,
-        logoUrl: "/lovable-uploads/7f3a93c9-f007-4606-a745-d2c2dbebd44b.png",
-        imageUrl: "https://images.unsplash.com/photo-1678995632928-347829338366?auto=format&fit=crop&q=80" // AI/code generation
+        logoUrl: "/lovable-uploads/7f3a93c9-f007-4606-a745-d2c2dbebd44b.png" 
       };
     } else if (project.title.includes("LLM") || project.organization?.includes("Los Alamos")) {
       return {
         ...project,
-        logoUrl: "/lovable-uploads/3926183e-0908-4c50-9e55-408031bdb5e6.png",
-        imageUrl: "https://images.unsplash.com/photo-1677442135136-760c813a715a?auto=format&fit=crop&q=80" // LLM/AI research
+        logoUrl: "/lovable-uploads/3926183e-0908-4c50-9e55-408031bdb5e6.png" 
       };
     } else if (project.title.includes("Analytics") || project.organization?.includes("Accenture")) {
       return {
         ...project,
-        logoUrl: "/lovable-uploads/55dd4af5-ea17-4614-a004-c52eaddc277a.png",
-        imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80" // Data analytics
+        logoUrl: "/lovable-uploads/55dd4af5-ea17-4614-a004-c52eaddc277a.png"  
       };
     } else if (project.title.includes("Walmart")) {
       return {
         ...project,
-        imageUrl: "https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&q=80" // Inventory/retail specific
+        imageUrl: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80" // Retail/inventory related image
       };
     } else if (project.title.includes("Taxi")) {
       return {
         ...project,
-        imageUrl: "https://images.unsplash.com/photo-1554222413-74c586ada270?auto=format&fit=crop&q=80" // Taxi specific image
+        imageUrl: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80" // City/taxi related image
       };
     } else if (project.title.includes("Japanese") || project.title.includes("Credit")) {
       return {
         ...project,
-        imageUrl: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=80" // Finance/banking specific
+        imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80" // Finance/banking related image
       };
     } else {
       // Default LLM-related image for other projects
       return {
         ...project,
-        imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80" // More specific LLM/code image
+        imageUrl: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
       };
     }
   });

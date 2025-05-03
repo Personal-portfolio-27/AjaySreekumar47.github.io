@@ -18,6 +18,62 @@ interface Repository {
   forks_count: number;
 }
 
+// Images for different project types based on keywords/languages
+const getProjectImage = (repo: Repository): string => {
+  const name = repo.name.toLowerCase();
+  const desc = (repo.description || "").toLowerCase();
+  const langs = (repo.language || "").toLowerCase();
+  const topics = repo.topics.map(t => t.toLowerCase());
+  
+  // Data science/ML projects
+  if (
+    topics.some(t => ['machine-learning', 'ml', 'ai', 'data-science', 'pytorch', 'tensorflow'].includes(t)) || 
+    name.includes('ml') || name.includes('ai') || desc.includes('machine learning') || desc.includes('neural')
+  ) {
+    return "https://images.unsplash.com/photo-1555952494-efd681c7e3f9?auto=format&fit=crop&q=80";
+  }
+  
+  // Python projects
+  else if (langs === 'python' || name.includes('py') || topics.includes('python')) {
+    return "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80";
+  }
+  
+  // Web/Frontend projects
+  else if (
+    langs === 'javascript' || langs === 'typescript' || langs === 'html' || 
+    topics.some(t => ['react', 'vue', 'angular', 'web', 'frontend'].includes(t))
+  ) {
+    return "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80";
+  }
+  
+  // Data analysis/visualization
+  else if (
+    name.includes('data') || desc.includes('data') || desc.includes('analysis') || 
+    topics.some(t => ['data-analysis', 'visualization', 'tableau', 'analytics'].includes(t))
+  ) {
+    return "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80";
+  }
+  
+  // Mobile/App development
+  else if (
+    topics.some(t => ['android', 'ios', 'mobile', 'app'].includes(t)) ||
+    name.includes('app') || desc.includes('mobile')
+  ) {
+    return "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80";
+  }
+  
+  // Backend/server
+  else if (
+    langs === 'java' || langs === 'c#' || langs === 'go' ||
+    topics.some(t => ['backend', 'server', 'api', 'database'].includes(t))
+  ) {
+    return "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80";
+  }
+  
+  // Default image for other projects
+  return "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80";
+};
+
 const ProjectsPage = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
@@ -67,6 +123,7 @@ const ProjectsPage = () => {
     githubUrl: repo.html_url,
     demoUrl: repo.homepage || undefined,
     technologies: repo.language ? [repo.language] : ['Various'],
+    imageUrl: getProjectImage(repo), // Add image based on project type
   });
 
   // Generate array of page numbers for pagination

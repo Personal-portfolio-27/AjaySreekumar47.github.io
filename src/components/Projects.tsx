@@ -9,7 +9,7 @@ import { ProjectCard } from "./project/ProjectCard";
 const Projects = () => {
   const isMobile = useIsMobile();
   
-  // Add logos to projects
+  // Add logos and images to projects
   const enhancedProjects = projects.map(project => {
     if (project.title.includes("AI Copilot") || project.organization?.includes("NASA")) {
       return {
@@ -26,14 +26,28 @@ const Projects = () => {
         ...project,
         logoUrl: "/lovable-uploads/55dd4af5-ea17-4614-a004-c52eaddc277a.png"  
       };
+    } else if (project.title.includes("Walmart")) {
+      return {
+        ...project,
+        imageUrl: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80" // Retail/inventory related image
+      };
+    } else if (project.title.includes("Taxi")) {
+      return {
+        ...project,
+        imageUrl: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80" // City/taxi related image
+      };
+    } else if (project.title.includes("Japanese") || project.title.includes("Credit")) {
+      return {
+        ...project,
+        imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80" // Finance/banking related image
+      };
     } else {
-      // Adding LLM-related images for other projects
+      // Default LLM-related image for other projects
       return {
         ...project,
         imageUrl: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
       };
     }
-    return project;
   });
   
   return (

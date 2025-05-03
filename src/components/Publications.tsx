@@ -41,9 +41,9 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
     <CardHeader className="pb-2 pt-4 px-4 bg-data-light/50 border-b border-data-blue/10">
       <div className="flex items-center gap-2 mb-1">
         <FileText className="h-4 w-4 text-data-blue" />
-        <h3 className="text-base font-semibold text-black">{publication.title}</h3>
+        <h3 className="text-base font-semibold text-gray-600">{publication.title}</h3>
       </div>
-      <div className="text-xs text-gray-600 flex justify-between items-center gap-1 mt-1">
+      <div className="text-xs text-black flex justify-between items-center gap-1 mt-1">
         <div className="flex items-center gap-1">
           <BookOpen className="h-3 w-3" />
           <span>{publication.venue}, {publication.year}</span>
@@ -64,11 +64,11 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
     <CardContent className="p-4">
       <div className="flex items-center gap-1 mb-2">
         <Users className="h-3 w-3 text-data-blue flex-shrink-0" />
-        <p className="text-xs text-black">{publication.authors}</p>
+        <p className="text-xs text-gray-600">{publication.authors}</p>
       </div>
       
       <div className="mt-3">
-        <h4 className="text-xs font-semibold mb-1 text-black">Abstract:</h4>
+        <h4 className="text-xs font-semibold mb-1 text-gray-600">Abstract:</h4>
         <p className="text-xs leading-relaxed text-gray-600">{publication.abstract}</p>
       </div>
       

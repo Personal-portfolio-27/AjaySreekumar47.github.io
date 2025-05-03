@@ -3,7 +3,7 @@ import { Project } from "./ProjectCard";
 
 export const projects: Project[] = [
   {
-    title: "🚀 AI Copilot for Code Generation",
+    title: "🚀 AI-Driven Co-Pilot for OML: Revolutionizing Systems Engineering at NASA JPL",
     description: "Developed an AI-driven coding Copilot using open-source LLMs and the LangChain framework, improving code generation accuracy by 90% and reducing inference latency by 80%.",
     shortDescription: "Developed an AI-driven coding Copilot using open-source LLMs and the LangChain framework, improving code generation accuracy by 90% and reducing inference latency by 80%. Leveraged advanced NLP techniques, retrieval-augmented generation (RAG), and custom VS Code tooling to enhance developer productivity and model performance.",
     fullDescription: `As a Machine Learning Researcher at the University of Arizona in collaboration with NASA Jet Propulsion Laboratory and BAE Systems, I spearheaded the development of an AI-powered coding Copilot that significantly enhances developer productivity and code quality using open-source large language models.
@@ -35,7 +35,7 @@ This project demonstrates how tailored LLM architectures and optimized pipelines
     period: "Jan 2025 – Present",
   },
   {
-    title: "🔬 LLMOps & Scientific Modeling Research",
+    title: "🔬 From LLMs to Vision Transformers: Enhancing Code Generation and Multi-Modal Time Series Predictions with Advanced Models",
     description: "Built uncertainty quantification techniques and multi-modal foundation models to enhance code translation and scientific data processing.",
     shortDescription: "Built uncertainty quantification techniques and multi-modal foundation models to enhance code translation and scientific data processing. Improved Fortran-to-C++ translation accuracy by 30–42% and boosted time-series forecasting by 20% using Vision Transformers and ML evaluation frameworks.",
     fullDescription: `As a Data Science Research Intern at Los Alamos National Laboratory, I contributed to advancing large language model operations (LLMOps) and scientific data understanding by designing high-precision modeling tools and evaluation frameworks.

@@ -19,7 +19,7 @@ const Hero = () => {
             Ajay Sreekumar
           </h1>
           <h2 className="text-2xl md:text-3xl text-foreground/80 font-medium mb-6 animate-slide-from-left" style={{ animationDelay: "0.1s" }}>
-            Data Scientist & Machine Learning Engineer
+            Data Scientist with Expertise in Machine Learning, NLP, LLMOps, and Predictive Analytics | Master's in Data Science (4.0 GPA), University of Arizona
           </h2>
           
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>

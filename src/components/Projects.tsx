@@ -25,6 +25,8 @@ interface Project {
   demoUrl?: string;
   technologies: string[];
   featured?: boolean;
+  organization?: string;
+  period?: string;
 }
 
 const projects: Project[] = [
@@ -57,6 +59,41 @@ This project demonstrates how tailored LLM architectures and optimized pipelines
     demoUrl: "https://ai-copilot.demo",
     technologies: ["LangChain", "PyTorch", "Sentence Transformers", "VS Code Extension API", "Pydantic", "Lark"],
     featured: true,
+    organization: "University of Arizona | NASA JPL | BAE Systems",
+    period: "Jan 2025 – Present",
+  },
+  {
+    title: "🔬 LLMOps & Scientific Modeling Research",
+    description: "Built uncertainty quantification techniques and multi-modal foundation models to enhance code translation and scientific data processing.",
+    shortDescription: "Built uncertainty quantification techniques and multi-modal foundation models to enhance code translation and scientific data processing. Improved Fortran-to-C++ translation accuracy by 30–42% and boosted time-series forecasting by 20% using Vision Transformers and ML evaluation frameworks.",
+    fullDescription: `As a Data Science Research Intern at Los Alamos National Laboratory, I contributed to advancing large language model operations (LLMOps) and scientific data understanding by designing high-precision modeling tools and evaluation frameworks.
+
+Key Contributions:
+
+• Uncertainty Quantification (UQ) for LLMs: Developed statistical modeling and parameter tuning techniques for LLM-assisted Fortran-to-C++ translation, improving translation accuracy by 30% through rigorous UQ strategies.
+
+• ML Evaluation Framework: Designed a comprehensive benchmarking suite for 12 open-source LLMs (7B–34B) using stratified sampling and CodeBLEU metrics, enabling detailed performance comparison across models.
+
+• Reinforcement Learning with Feedback Loop: Engineered an agentic feedback system integrating compiler diagnostics with semantic similarity scores, which implemented a reinforcement learning loop, achieving 42% performance uplift over baseline translation systems.
+
+• Multi-Modal Scientific Modeling: Developed foundation models combining computer vision and predictive ML for scientific datasets. Fine-tuned Vision Transformers (ViT) in PyTorch and TensorFlow, improving time-series image forecasting accuracy by 20%.
+
+• Large-Scale Data Handling: Managed and processed 500+ datasets using Python (pandas, NumPy) and SQL, implementing scalable feature engineering and cleaning workflows for downstream model readiness.
+
+• Research Publication: Co-authored a paper titled "LLM-Assisted Translation of Legacy FORTRAN Code to C++" presented at AISD NAACL 2025, recognized for innovation in LLM application to scientific codebases.
+
+• Visualization Suite: Created interactive, multi-dimensional plots using t-SNE and UMAP to map error patterns across 5,000+ code samples, helping identify key performance bottlenecks and trends.
+
+Impact:
+This internship showcased how domain-aligned LLMs, reinforcement learning, and visual analytics can be combined to enhance scientific computation and legacy code translation at scale.`,
+    imageUrl: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80",
+    tags: ["LLMOps", "Scientific Computing", "Uncertainty Quantification", "Computer Vision"],
+    achievements: ["30-42% improved code translation", "20% better time-series forecasting", "Published paper at AISD NAACL 2025"],
+    githubUrl: "https://github.com/username/lanl-llmops",
+    technologies: ["Python", "PyTorch", "TensorFlow", "Vision Transformers", "Reinforcement Learning", "SQL"],
+    featured: true,
+    organization: "Los Alamos National Laboratory",
+    period: "May 2024 – Aug 2024",
   },
   {
     title: "Walmart Demand Prediction",
@@ -120,8 +157,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-xl md:text-2xl">{project.title}</CardTitle>
                 </div>
-                <div className="text-xs md:text-sm text-muted-foreground mt-1">University of Arizona | NASA JPL | BAE Systems</div>
-                <div className="text-xs md:text-sm text-muted-foreground mb-2">Jan 2025 – Present</div>
+                <div className="text-xs md:text-sm text-muted-foreground mt-1">{project.organization || ''}</div>
+                <div className="text-xs md:text-sm text-muted-foreground mb-2">{project.period || ''}</div>
                 <CardDescription>
                   <div className="flex flex-wrap mt-2">
                     {project.tags.map((tag) => (
@@ -190,7 +227,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <DialogHeader>
               <DialogTitle className="text-xl md:text-2xl">{project.title}</DialogTitle>
               <DialogDescription className="text-xs md:text-sm text-muted-foreground">
-                University of Arizona | NASA JPL | BAE Systems • Jan 2025 – Present
+                {project.organization || ''} • {project.period || ''}
               </DialogDescription>
             </DialogHeader>
             <div className="mt-4">

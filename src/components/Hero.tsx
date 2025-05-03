@@ -39,7 +39,7 @@ const Hero = () => {
           
           <div className="flex items-center justify-center gap-5 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/AjaySreekumar47" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-110"
@@ -48,7 +48,7 @@ const Hero = () => {
               <Github className="h-5 w-5" />
             </a>
             <a 
-              href="https://linkedin.com/in/yourusername" 
+              href="https://www.linkedin.com/in/ajay-sreekumar-nmims/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-110"

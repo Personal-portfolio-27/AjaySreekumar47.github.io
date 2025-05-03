@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/AjaySreekumar47" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-white/80 hover:text-white transition-colors"
@@ -25,7 +25,7 @@ const Footer = () => {
                 <Github className="h-5 w-5" />
               </a>
               <a 
-                href="https://linkedin.com/in/yourusername" 
+                href="https://www.linkedin.com/in/ajay-sreekumar-nmims/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-white/80 hover:text-white transition-colors"
@@ -58,6 +58,9 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <p className="text-white/80 mb-2">
               Email: <a href="mailto:ajaysreekumar.nmims@gmail.com" className="hover:underline">ajaysreekumar.nmims@gmail.com</a>
+            </p>
+            <p className="text-white/80 mb-2">
+              Phone: <a href="tel:+17758306747" className="hover:underline">+1-(775)-830-6747</a>
             </p>
             <p className="text-white/80 mb-4">
               Location: Arizona, USA

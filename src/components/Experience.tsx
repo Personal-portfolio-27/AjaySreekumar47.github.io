@@ -12,7 +12,7 @@ interface TimelineItem {
 
 const experiences: TimelineItem[] = [
   {
-    company: "University of Arizona | NASA JPL | BAE Systems",
+    company: "University of Arizona | NASA Jet Propulsion Laboratory | BAE Systems",
     role: "Machine Learning Researcher",
     period: "Jan 2025 - Present",
     description: "Built an AI Copilot using open-source LLMs and LangChain to enhance developer productivity and code quality.",
@@ -59,11 +59,11 @@ const TimelineItem = ({ item, isLast }: { item: TimelineItem, isLast: boolean })
     
     {/* Timeline dot */}
     <div className="absolute top-0 left-0 w-6 h-6 rounded-full bg-data-blue -translate-x-1/2 flex items-center justify-center">
-      <div className="w-3 h-3 rounded-full bg-white"></div>
+      <div className="w-3 h-3 rounded-full bg-background"></div>
     </div>
     
     {/* Content */}
-    <div className="bg-white rounded-lg p-6 border border-border shadow-sm">
+    <div className="bg-card rounded-lg p-6 border border-border shadow-sm">
       <div className="flex flex-wrap justify-between items-start mb-2">
         <h3 className="text-xl font-bold text-foreground">{item.company}</h3>
         <span className="text-sm text-muted-foreground bg-secondary px-2.5 py-1 rounded-full">{item.period}</span>
@@ -95,7 +95,7 @@ const TimelineItem = ({ item, isLast }: { item: TimelineItem, isLast: boolean })
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 bg-secondary/50">
+    <section id="experience" className="py-16 bg-secondary/30">
       <div className="section-container">
         <h2 className="section-title">Work Experience</h2>
         
@@ -109,7 +109,7 @@ const Experience = () => {
           ))}
         </div>
         
-        <div className="mt-12 bg-data-light p-6 rounded-lg border border-data-blue/10">
+        <div className="mt-12 bg-card p-6 rounded-lg border border-border">
           <h3 className="text-xl font-bold mb-2">Education</h3>
           <div className="space-y-4">
             <div className="flex flex-wrap justify-between items-start">
@@ -129,6 +129,7 @@ const Experience = () => {
                 <p className="text-muted-foreground">Electronics & Communications Engineering</p>
               </div>
               <div className="text-right">
+                <p className="font-medium">GPA: 3.09/4.0</p>
                 <p className="text-muted-foreground">2014 - 2018</p>
               </div>
             </div>

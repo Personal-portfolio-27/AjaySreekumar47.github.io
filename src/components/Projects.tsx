@@ -11,6 +11,7 @@ import {
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Github, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Project {
   title: string;
@@ -85,6 +86,7 @@ This project demonstrates how tailored LLM architectures and optimized pipelines
 
 const ProjectCard = ({ project }: { project: Project }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const isMobile = useIsMobile();
 
   const handleOpenDialog = () => {
     setShowFullDescription(true);
@@ -100,7 +102,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <>
         <Card className="col-span-full overflow-hidden card-hover bg-white">
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="h-full">
+            <div className={`${isMobile ? 'h-48' : 'h-full'}`}>
               {project.imageUrl ? (
                 <img 
                   src={project.imageUrl} 
@@ -113,13 +115,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 </div>
               )}
             </div>
-            <div className="p-6 flex flex-col">
-              <CardHeader className="p-0 pb-4">
+            <div className="p-4 md:p-6 flex flex-col">
+              <CardHeader className="p-0 pb-3 md:pb-4">
                 <div className="flex justify-between items-start">
-                  <CardTitle className="text-2xl">{project.title}</CardTitle>
+                  <CardTitle className="text-xl md:text-2xl">{project.title}</CardTitle>
                 </div>
-                <div className="text-sm text-muted-foreground mt-1">University of Arizona | NASA JPL | BAE Systems</div>
-                <div className="text-sm text-muted-foreground mb-2">Jan 2025 – Present</div>
+                <div className="text-xs md:text-sm text-muted-foreground mt-1">University of Arizona | NASA JPL | BAE Systems</div>
+                <div className="text-xs md:text-sm text-muted-foreground mb-2">Jan 2025 – Present</div>
                 <CardDescription>
                   <div className="flex flex-wrap mt-2">
                     {project.tags.map((tag) => (
@@ -128,49 +130,54 @@ const ProjectCard = ({ project }: { project: Project }) => {
                   </div>
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-0 py-4 flex-grow">
-                <p className="text-sm text-muted-foreground mb-4">{project.shortDescription || project.description}</p>
+              <CardContent className="p-0 py-3 md:py-4 flex-grow">
+                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">{project.shortDescription || project.description}</p>
                 <div className="space-y-2">
-                  <h4 className="text-sm font-semibold">Key Achievements:</h4>
-                  <ul className="list-disc pl-5 text-sm text-muted-foreground">
-                    {project.achievements.map((achievement, i) => (
+                  <h4 className="text-xs md:text-sm font-semibold">Key Achievements:</h4>
+                  <ul className="list-disc pl-5 text-xs md:text-sm text-muted-foreground">
+                    {project.achievements.slice(0, isMobile ? 2 : 3).map((achievement, i) => (
                       <li key={i}>{achievement}</li>
                     ))}
                   </ul>
                 </div>
               </CardContent>
-              <CardFooter className="p-0 pt-4 flex flex-col items-start gap-4 mt-auto">
+              <CardFooter className="p-0 pt-3 md:pt-4 flex flex-col items-start gap-3 md:gap-4 mt-auto">
                 <div className="w-full">
-                  <h4 className="text-sm font-semibold mb-1">Technologies:</h4>
+                  <h4 className="text-xs md:text-sm font-semibold mb-1">Technologies:</h4>
                   <div className="flex flex-wrap">
-                    {project.technologies.map((tech) => (
+                    {project.technologies.slice(0, isMobile ? 4 : project.technologies.length).map((tech) => (
                       <span key={tech} className="tag">{tech}</span>
                     ))}
+                    {isMobile && project.technologies.length > 4 && (
+                      <span className="tag">+{project.technologies.length - 4} more</span>
+                    )}
                   </div>
                 </div>
-                <div className="flex gap-2 w-full">
+                <div className="flex gap-2 w-full flex-col sm:flex-row">
                   {project.fullDescription && (
                     <Button 
                       variant="default" 
-                      size="sm" 
-                      className="gap-2 flex-1" 
+                      size={isMobile ? "sm" : "default"}
+                      className="gap-2 w-full sm:flex-1" 
                       onClick={handleOpenDialog}
                     >
                       View More Details
                     </Button>
                   )}
-                  <Button variant="outline" size="sm" className="gap-2" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4" /> GitHub
-                    </a>
-                  </Button>
-                  {project.demoUrl && (
-                    <Button variant="outline" size="sm" className="gap-2" asChild>
-                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4" /> Demo
+                  <div className="flex gap-2 w-full">
+                    <Button variant="outline" size={isMobile ? "sm" : "default"} className="gap-2 flex-1" asChild>
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4" /> GitHub
                       </a>
                     </Button>
-                  )}
+                    {project.demoUrl && (
+                      <Button variant="outline" size={isMobile ? "sm" : "default"} className="gap-2 flex-1" asChild>
+                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4" /> Demo
+                        </a>
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </CardFooter>
             </div>
@@ -181,8 +188,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <Dialog open={showFullDescription} onOpenChange={setShowFullDescription}>
           <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-2xl">{project.title}</DialogTitle>
-              <DialogDescription className="text-sm text-muted-foreground">
+              <DialogTitle className="text-xl md:text-2xl">{project.title}</DialogTitle>
+              <DialogDescription className="text-xs md:text-sm text-muted-foreground">
                 University of Arizona | NASA JPL | BAE Systems • Jan 2025 – Present
               </DialogDescription>
             </DialogHeader>
@@ -191,7 +198,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
-                  className="w-full h-64 object-cover rounded-md mb-6"
+                  className="w-full h-40 md:h-64 object-cover rounded-md mb-4 md:mb-6"
                 />
               )}
               <div className="mb-4 flex flex-wrap gap-2">
@@ -199,10 +206,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
                   <span key={tag} className="tag">{tag}</span>
                 ))}
               </div>
-              <div className="whitespace-pre-line text-sm leading-relaxed">
+              <div className="whitespace-pre-line text-xs md:text-sm leading-relaxed">
                 {project.fullDescription}
               </div>
-              <div className="mt-6">
+              <div className="mt-4 md:mt-6">
                 <h4 className="font-semibold mb-2">Technologies Used:</h4>
                 <div className="flex flex-wrap">
                   {project.technologies.map((tech) => (
@@ -210,14 +217,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
                   ))}
                 </div>
               </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Button variant="outline" size="sm" className="gap-2" asChild>
+              <div className="mt-4 md:mt-6 flex flex-wrap gap-2">
+                <Button variant="outline" size={isMobile ? "sm" : "default"} className="gap-2" asChild>
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" /> View on GitHub
                   </a>
                 </Button>
                 {project.demoUrl && (
-                  <Button variant="outline" size="sm" className="gap-2" asChild>
+                  <Button variant="outline" size={isMobile ? "sm" : "default"} className="gap-2" asChild>
                     <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4" /> Live Demo
                     </a>
@@ -234,40 +241,46 @@ const ProjectCard = ({ project }: { project: Project }) => {
   // Regular card for non-featured projects
   return (
     <Card className="overflow-hidden card-hover bg-white">
-      <div className="h-48 bg-gradient-to-r from-data-blue/10 to-data-highlight/10 flex items-center justify-center">
-        <h3 className="text-2xl font-bold text-data-blue/70">{project.title.split(' ').map(word => word[0]).join('')}</h3>
+      <div className="h-36 sm:h-48 bg-gradient-to-r from-data-blue/10 to-data-highlight/10 flex items-center justify-center">
+        <h3 className="text-xl sm:text-2xl font-bold text-data-blue/70">{project.title.split(' ').map(word => word[0]).join('')}</h3>
       </div>
-      <CardHeader>
-        <CardTitle>{project.title}</CardTitle>
+      <CardHeader className="p-4 sm:p-6">
+        <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
         <CardDescription>
           <div className="flex flex-wrap mt-1">
-            {project.tags.map((tag) => (
+            {project.tags.slice(0, isMobile ? 2 : project.tags.length).map((tag) => (
               <span key={tag} className="tag">{tag}</span>
             ))}
+            {isMobile && project.tags.length > 2 && (
+              <span className="tag">+{project.tags.length - 2}</span>
+            )}
           </div>
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
-        <div className="space-y-2">
-          <h4 className="text-sm font-semibold">Key Achievements:</h4>
-          <ul className="list-disc pl-5 text-sm text-muted-foreground">
-            {project.achievements.map((achievement, i) => (
+      <CardContent className="px-4 pb-2 sm:p-6 sm:pt-0">
+        <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{project.description}</p>
+        <div className="space-y-1 sm:space-y-2">
+          <h4 className="text-xs sm:text-sm font-semibold">Key Achievements:</h4>
+          <ul className="list-disc pl-4 sm:pl-5 text-xs sm:text-sm text-muted-foreground">
+            {project.achievements.slice(0, isMobile ? 2 : project.achievements.length).map((achievement, i) => (
               <li key={i}>{achievement}</li>
             ))}
           </ul>
         </div>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-4">
+      <CardFooter className="flex-col items-start gap-3 p-4 pt-2 sm:p-6">
         <div>
-          <h4 className="text-sm font-semibold mb-1">Technologies:</h4>
+          <h4 className="text-xs sm:text-sm font-semibold mb-1">Technologies:</h4>
           <div className="flex flex-wrap">
-            {project.technologies.map((tech) => (
+            {project.technologies.slice(0, isMobile ? 3 : project.technologies.length).map((tech) => (
               <span key={tech} className="tag">{tech}</span>
             ))}
+            {isMobile && project.technologies.length > 3 && (
+              <span className="tag">+{project.technologies.length - 3}</span>
+            )}
           </div>
         </div>
-        <Button variant="outline" size="sm" className="gap-2" asChild>
+        <Button variant="outline" size="sm" className="gap-2 w-full sm:w-auto" asChild>
           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
             <Github className="w-4 h-4" /> View on GitHub
           </a>
@@ -278,27 +291,29 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 const Projects = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="py-10 sm:py-16">
       <div className="section-container">
         <h2 className="section-title">Featured Projects</h2>
-        <p className="max-w-3xl mb-10 text-muted-foreground">
+        <p className="max-w-3xl mb-6 sm:mb-10 text-sm sm:text-base text-muted-foreground">
           Explore some of my most significant projects that demonstrate my skills in
           <span className="highlight"> machine learning</span>,
           <span className="highlight"> data analysis</span>, and
           <span className="highlight"> predictive modeling</span>.
         </p>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
         
-        <div className="mt-12 text-center">
-          <Button asChild>
+        <div className="mt-8 sm:mt-12 text-center">
+          <Button size={isMobile ? "sm" : "default"} asChild>
             <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" className="gap-2">
-              <Github className="w-5 h-5" /> View More on GitHub
+              <Github className="w-4 h-4 sm:w-5 sm:h-5" /> View More on GitHub
             </a>
           </Button>
         </div>

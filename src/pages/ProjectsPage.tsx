@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, ArrowLeft } from "lucide-react";
@@ -18,19 +17,37 @@ interface Repository {
   forks_count: number;
 }
 
-// Images for different project types based on keywords/languages
+// Enhanced function to get more specific project images based on keywords
 const getProjectImage = (repo: Repository): string => {
   const name = repo.name.toLowerCase();
   const desc = (repo.description || "").toLowerCase();
   const langs = (repo.language || "").toLowerCase();
   const topics = repo.topics.map(t => t.toLowerCase());
   
+  // Bank marketing related
+  if (name.includes('bank') || desc.includes('bank') || desc.includes('marketing') || desc.includes('subscription')) {
+    return "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=80"; // Bank/finance image
+  }
+  
+  // Portfolio/personal site
+  else if (name.includes('github.io') || name.includes('portfolio') || desc.includes('portfolio')) {
+    return "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80"; // Computer/portfolio related
+  }
+  
   // Data science/ML projects
-  if (
+  else if (
     topics.some(t => ['machine-learning', 'ml', 'ai', 'data-science', 'pytorch', 'tensorflow'].includes(t)) || 
     name.includes('ml') || name.includes('ai') || desc.includes('machine learning') || desc.includes('neural')
   ) {
     return "https://images.unsplash.com/photo-1555952494-efd681c7e3f9?auto=format&fit=crop&q=80";
+  }
+  
+  // NLP specific projects
+  else if (
+    name.includes('nlp') || desc.includes('nlp') || desc.includes('natural language') || 
+    name.includes('text') || desc.includes('text') || name.includes('language')
+  ) {
+    return "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80"; // Text/language related
   }
   
   // Python projects
@@ -70,8 +87,8 @@ const getProjectImage = (repo: Repository): string => {
     return "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80";
   }
   
-  // Default image for other projects
-  return "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80";
+  // Default image for other projects - LLM related
+  return "https://images.unsplash.com/photo-1677442135136-760c813a715a?auto=format&fit=crop&q=80"; // LLM/AI related default
 };
 
 const ProjectsPage = () => {

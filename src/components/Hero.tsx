@@ -4,7 +4,7 @@ import { Github, Linkedin, Download } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-[90vh] flex items-center pt-8 relative overflow-hidden">
+    <section id="hero" className="min-h-[90vh] flex items-center justify-center pt-8 relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0" style={{
@@ -12,8 +12,8 @@ const Hero = () => {
         }}></div>
       </div>
       
-      <div className="container z-10">
-        <div className="max-w-3xl">
+      <div className="container z-10 text-center">
+        <div className="max-w-3xl mx-auto">
           <p className="text-data-blue font-medium mb-2 animate-fade-in">Hello, I'm</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-slide-from-left">
             Ajay Sreekumar
@@ -22,13 +22,13 @@ const Hero = () => {
             Data Scientist & Machine Learning Engineer
           </h2>
           
-          <p className="text-muted-foreground mb-8 max-w-xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-muted-foreground mb-8 max-w-xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Experienced in <span className="highlight">Machine Learning</span>, <span className="highlight">NLP</span>, 
             <span className="highlight"> LLMOps</span>, and <span className="highlight">Predictive Analytics</span>. 
             Master's in Data Science from University of Arizona with a perfect 4.0 GPA.
           </p>
           
-          <div className="flex flex-wrap gap-4 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          <div className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <Button asChild className="animate-bounce hover:animate-none">
               <a href="#contact">Contact Me</a>
             </Button>
@@ -37,7 +37,7 @@ const Hero = () => {
             </Button>
           </div>
           
-          <div className="flex items-center gap-5 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="flex items-center justify-center gap-5 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <a 
               href="https://github.com/yourusername" 
               target="_blank" 

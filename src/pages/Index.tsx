@@ -41,13 +41,15 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Publications />
-      <Experience />
-      <Contact />
+      <main className="pt-0">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Publications />
+        <Experience />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

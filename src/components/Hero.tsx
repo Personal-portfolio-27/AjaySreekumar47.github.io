@@ -23,9 +23,7 @@ const Hero = () => {
           </h2>
           
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Experienced in <span className="highlight">Machine Learning</span>, <span className="highlight">NLP</span>, 
-            <span className="highlight"> LLMOps</span>, and <span className="highlight">Predictive Analytics</span>. 
-            Master's in Data Science from University of Arizona with a perfect 4.0 GPA.
+            Data Scientist with Expertise in Machine Learning, NLP, LLMOps, and Predictive Analytics | Master's in Data Science (4.0 GPA), University of Arizona
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>

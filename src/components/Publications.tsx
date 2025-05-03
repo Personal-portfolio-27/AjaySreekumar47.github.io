@@ -41,9 +41,9 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
     <CardHeader className="pb-2 pt-4 px-4 bg-data-light/50 border-b border-data-blue/10">
       <div className="flex items-center gap-2 mb-1">
         <FileText className="h-4 w-4 text-data-blue" />
-        <h3 className="text-base font-semibold text-gray-600">{publication.title}</h3>
+        <h3 className="text-base font-semibold text-gray-600 dark:text-gray-200">{publication.title}</h3>
       </div>
-      <div className="text-xs text-black flex justify-between items-center gap-1 mt-1">
+      <div className="text-xs text-black dark:text-white flex justify-between items-center gap-1 mt-1">
         <div className="flex items-center gap-1">
           <BookOpen className="h-3 w-3" />
           <span>{publication.venue}, {publication.year}</span>
@@ -64,21 +64,21 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
     <CardContent className="p-4">
       <div className="flex items-center gap-1 mb-2">
         <Users className="h-3 w-3 text-data-blue flex-shrink-0" />
-        <p className="text-xs text-gray-600">{publication.authors}</p>
+        <p className="text-xs text-gray-600 dark:text-gray-300">{publication.authors}</p>
       </div>
       
       <div className="mt-3">
-        <h4 className="text-xs font-semibold mb-1 text-gray-600">Abstract:</h4>
-        <p className="text-xs leading-relaxed text-gray-600">{publication.abstract}</p>
+        <h4 className="text-xs font-semibold mb-1 text-gray-600 dark:text-gray-300">Abstract:</h4>
+        <p className="text-xs leading-relaxed text-gray-600 dark:text-gray-300">{publication.abstract}</p>
       </div>
       
       <div className="mt-3">
-        <h4 className="text-xs font-semibold mb-1 text-black">Keywords:</h4>
+        <h4 className="text-xs font-semibold mb-1 text-black dark:text-white">Keywords:</h4>
         <div className="flex flex-wrap gap-1">
           {publication.keywords.map((keyword, index) => (
             <span 
               key={index} 
-              className="text-xs px-1.5 py-0.5 bg-white rounded-full border border-data-blue/20 shadow-sm text-black"
+              className="text-xs px-1.5 py-0.5 bg-white dark:bg-gray-800 rounded-full border border-data-blue/20 shadow-sm text-black dark:text-white"
             >
               {keyword}
             </span>
@@ -93,9 +93,9 @@ const Publications = () => {
   const llmCodeImage = "https://images.unsplash.com/photo-1498050108023-c5249f4df085";
 
   return (
-    <section id="publications" className="py-8 bg-white">
+    <section id="publications" className="py-8 bg-white dark:bg-background">
       <div className="section-container py-8">
-        <h2 className="section-title mb-6 text-black">Publications</h2>
+        <h2 className="section-title mb-6 text-black dark:text-white">Publications</h2>
         
         <div className="grid gap-6">
           {publicationsData.map((publication, index) => (
@@ -110,9 +110,9 @@ const Publications = () => {
               alt="Code related to Large Language Models" 
               className="w-full h-48 object-cover"
             />
-            <div className="p-4 bg-white">
-              <h3 className="text-lg font-semibold text-black">LLM Research</h3>
-              <p className="text-sm text-gray-600">Exploring advanced applications of language models in scientific computing</p>
+            <div className="p-4 bg-white dark:bg-gray-800">
+              <h3 className="text-lg font-semibold text-black dark:text-white">LLM Research</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Exploring advanced applications of language models in scientific computing</p>
             </div>
           </div>
           <div className="rounded-lg overflow-hidden shadow-md">
@@ -121,9 +121,9 @@ const Publications = () => {
               alt="Programming with Large Language Models" 
               className="w-full h-48 object-cover"
             />
-            <div className="p-4 bg-white">
-              <h3 className="text-lg font-semibold text-black">Code Translation</h3>
-              <p className="text-sm text-gray-600">Leveraging LLMs for legacy code modernization and cross-platform development</p>
+            <div className="p-4 bg-white dark:bg-gray-800">
+              <h3 className="text-lg font-semibold text-black dark:text-white">Code Translation</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Leveraging LLMs for legacy code modernization and cross-platform development</p>
             </div>
           </div>
         </div>

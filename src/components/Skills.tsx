@@ -136,16 +136,16 @@ const Skills = () => {
         <div className="mt-6 p-3 bg-data-light/80 rounded-lg border border-data-blue/10 animate-fade-in" style={{ animationDelay: "1s" }}>
           <h3 className="text-xs font-semibold mb-2 text-data-blue">Additional Expertise</h3>
           <div className="flex flex-wrap gap-1.5 justify-center">
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Data Visualization</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Statistical Analysis</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">NLP</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">LLMOps</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">CI/CD</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Deep Learning</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Time Series Analysis</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">ETL Pipelines</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Data Engineering</span>
-            <span className="px-2 py-1 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Anomaly Detection</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">Data Visualization</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">Statistical Analysis</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">NLP</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">LLMOps</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">CI/CD</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">Deep Learning</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">Time Series Analysis</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">ETL Pipelines</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">Data Engineering</span>
+            <span className="px-2 py-1 bg-white dark:bg-gray-800 text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors text-black dark:text-white">Anomaly Detection</span>
           </div>
         </div>
       </div>

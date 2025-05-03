@@ -79,7 +79,7 @@ const ProjectsPage = () => {
     <div className="min-h-screen">
       <header className="fixed top-0 left-0 w-full bg-white/80 shadow-sm backdrop-blur-md py-3 z-50">
         <div className="container flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-data-navy hover:text-data-blue transition-colors">
+          <Link to="/" className="flex items-center gap-2 text-black hover:text-data-blue transition-colors">
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Home</span>
           </Link>
@@ -94,15 +94,15 @@ const ProjectsPage = () => {
       </header>
       
       <main className="container pt-24 pb-16">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">My GitHub Projects</h1>
-        <p className="text-muted-foreground mb-8 max-w-3xl">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2 text-black">My GitHub Projects</h1>
+        <p className="text-gray-600 mb-8 max-w-3xl">
           Explore all my projects from GitHub, showcasing my work in machine learning, data science, and software development.
         </p>
         
         {loading ? (
           <div className="flex flex-col items-center justify-center min-h-[300px]">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-data-blue"></div>
-            <p className="mt-4 text-muted-foreground">Loading projects...</p>
+            <p className="mt-4 text-gray-600">Loading projects...</p>
           </div>
         ) : error ? (
           <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-md">

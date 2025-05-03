@@ -9,6 +9,27 @@ import { ProjectCard } from "./project/ProjectCard";
 const Projects = () => {
   const isMobile = useIsMobile();
   
+  // Add logos to projects
+  const enhancedProjects = projects.map(project => {
+    if (project.title.includes("AI Copilot") || project.organization?.includes("NASA")) {
+      return {
+        ...project,
+        logoUrl: "/lovable-uploads/7f3a93c9-f007-4606-a745-d2c2dbebd44b.png" 
+      };
+    } else if (project.title.includes("LLM") || project.organization?.includes("Los Alamos")) {
+      return {
+        ...project,
+        logoUrl: "/lovable-uploads/3926183e-0908-4c50-9e55-408031bdb5e6.png" 
+      };
+    } else if (project.title.includes("Analytics") || project.organization?.includes("Accenture")) {
+      return {
+        ...project,
+        logoUrl: "/lovable-uploads/55dd4af5-ea17-4614-a004-c52eaddc277a.png"  
+      };
+    }
+    return project;
+  });
+  
   return (
     <section id="projects" className="py-10 sm:py-16">
       <div className="section-container">
@@ -21,7 +42,7 @@ const Projects = () => {
         </p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8">
-          {projects.map((project) => (
+          {enhancedProjects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>

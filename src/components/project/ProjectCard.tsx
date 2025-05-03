@@ -27,6 +27,7 @@ export interface Project {
   featured?: boolean;
   organization?: string;
   period?: string;
+  logoUrl?: string;
 }
 
 export const ProjectCard = ({ project }: { project: Project }) => {
@@ -44,9 +45,9 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         <Card className="col-span-full overflow-hidden card-hover bg-white">
           <div className="grid md:grid-cols-2 gap-4">
             <div className={`${isMobile ? 'h-48' : 'h-full'}`}>
-              {project.imageUrl ? (
+              {project.imageUrl || project.logoUrl ? (
                 <img 
-                  src={project.imageUrl} 
+                  src={project.imageUrl || project.logoUrl} 
                   alt={project.title} 
                   className="w-full h-full object-cover"
                 />
@@ -59,27 +60,27 @@ export const ProjectCard = ({ project }: { project: Project }) => {
             <div className="p-4 md:p-6 flex flex-col">
               <CardHeader className="p-0 pb-3 md:pb-4">
                 <div className="flex justify-between items-start">
-                  <CardTitle className="text-xl md:text-2xl">{project.title}</CardTitle>
+                  <CardTitle className="text-xl md:text-2xl text-black">{project.title}</CardTitle>
                 </div>
-                <div className="text-xs md:text-sm text-muted-foreground mt-1">{project.organization || ''}</div>
-                <div className="text-xs md:text-sm text-muted-foreground mb-2">{project.period || ''}</div>
+                <div className="text-xs md:text-sm text-gray-600 mt-1">{project.organization || ''}</div>
+                <div className="text-xs md:text-sm text-gray-600 mb-2">{project.period || ''}</div>
                 <CardDescription>
                   <div className="flex flex-wrap mt-2">
                     {project.tags.slice(0, isMobile ? 3 : project.tags.length).map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
+                      <span key={tag} className="tag bg-gray-100 text-gray-800">{tag}</span>
                     ))}
                     {isMobile && project.tags.length > 3 && (
-                      <span className="tag">+{project.tags.length - 3}</span>
+                      <span className="tag bg-gray-100 text-gray-800">+{project.tags.length - 3}</span>
                     )}
                   </div>
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-0 py-3 md:py-4 flex-grow">
-                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4">{project.shortDescription || project.description}</p>
+                <p className="text-xs md:text-sm text-gray-600 mb-3 md:mb-4">{project.shortDescription || project.description}</p>
                 {project.achievements && project.achievements.length > 0 && (
                   <div className="space-y-2">
-                    <h4 className="text-xs md:text-sm font-semibold">Key Achievements:</h4>
-                    <ul className="list-disc pl-5 text-xs md:text-sm text-muted-foreground">
+                    <h4 className="text-xs md:text-sm font-semibold text-black">Key Achievements:</h4>
+                    <ul className="list-disc pl-5 text-xs md:text-sm text-gray-600">
                       {project.achievements.slice(0, isMobile ? 2 : 3).map((achievement, i) => (
                         <li key={i}>{achievement}</li>
                       ))}
@@ -90,13 +91,13 @@ export const ProjectCard = ({ project }: { project: Project }) => {
               <CardFooter className="p-0 pt-3 md:pt-4 flex flex-col items-start gap-3 md:gap-4 mt-auto">
                 {project.technologies && project.technologies.length > 0 && (
                   <div className="w-full">
-                    <h4 className="text-xs md:text-sm font-semibold mb-1">Technologies:</h4>
+                    <h4 className="text-xs md:text-sm font-semibold text-black mb-1">Technologies:</h4>
                     <div className="flex flex-wrap">
                       {project.technologies.slice(0, isMobile ? 4 : project.technologies.length).map((tech) => (
-                        <span key={tech} className="tag">{tech}</span>
+                        <span key={tech} className="tag bg-gray-100 text-gray-800">{tech}</span>
                       ))}
                       {isMobile && project.technologies.length > 4 && (
-                        <span className="tag">+{project.technologies.length - 4} more</span>
+                        <span className="tag bg-gray-100 text-gray-800">+{project.technologies.length - 4} more</span>
                       )}
                     </div>
                   </div>
@@ -142,9 +143,9 @@ export const ProjectCard = ({ project }: { project: Project }) => {
               </DialogDescription>
             </DialogHeader>
             <div className="mt-4">
-              {project.imageUrl && (
+              {(project.imageUrl || project.logoUrl) && (
                 <img 
-                  src={project.imageUrl} 
+                  src={project.imageUrl || project.logoUrl} 
                   alt={project.title} 
                   className="w-full h-40 md:h-64 object-cover rounded-md mb-4 md:mb-6"
                 />
@@ -192,27 +193,35 @@ export const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <Card className="overflow-hidden card-hover bg-white">
       <div className="h-36 sm:h-48 bg-gradient-to-r from-data-blue/10 to-data-highlight/10 flex items-center justify-center">
-        <h3 className="text-xl sm:text-2xl font-bold text-data-blue/70">{project.title.split(' ').map(word => word[0]).join('')}</h3>
+        {project.logoUrl ? (
+          <img 
+            src={project.logoUrl} 
+            alt={project.title} 
+            className="h-full w-full object-contain p-4"
+          />
+        ) : (
+          <h3 className="text-xl sm:text-2xl font-bold text-data-blue/70">{project.title.split(' ').map(word => word[0]).join('')}</h3>
+        )}
       </div>
       <CardHeader className="p-4 sm:p-6">
-        <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
+        <CardTitle className="text-lg sm:text-xl text-black">{project.title}</CardTitle>
         <CardDescription>
           <div className="flex flex-wrap mt-1">
             {project.tags.slice(0, isMobile ? 2 : project.tags.length).map((tag) => (
-              <span key={tag} className="tag">{tag}</span>
+              <span key={tag} className="tag bg-gray-100 text-gray-800">{tag}</span>
             ))}
             {isMobile && project.tags.length > 2 && (
-              <span className="tag">+{project.tags.length - 2}</span>
+              <span className="tag bg-gray-100 text-gray-800">+{project.tags.length - 2}</span>
             )}
           </div>
         </CardDescription>
       </CardHeader>
       <CardContent className="px-4 pb-2 sm:p-6 sm:pt-0">
-        <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{project.description}</p>
+        <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">{project.description}</p>
         {project.achievements && project.achievements.length > 0 && (
           <div className="space-y-1 sm:space-y-2">
-            <h4 className="text-xs sm:text-sm font-semibold">Key Achievements:</h4>
-            <ul className="list-disc pl-4 sm:pl-5 text-xs sm:text-sm text-muted-foreground">
+            <h4 className="text-xs sm:text-sm font-semibold text-black">Key Achievements:</h4>
+            <ul className="list-disc pl-4 sm:pl-5 text-xs sm:text-sm text-gray-600">
               {project.achievements.slice(0, isMobile ? 2 : project.achievements.length).map((achievement, i) => (
                 <li key={i}>{achievement}</li>
               ))}
@@ -223,13 +232,13 @@ export const ProjectCard = ({ project }: { project: Project }) => {
       <CardFooter className="flex-col items-start gap-3 p-4 pt-2 sm:p-6">
         {project.technologies && project.technologies.length > 0 && (
           <div>
-            <h4 className="text-xs sm:text-sm font-semibold mb-1">Technologies:</h4>
+            <h4 className="text-xs sm:text-sm font-semibold text-black mb-1">Technologies:</h4>
             <div className="flex flex-wrap">
               {project.technologies.slice(0, isMobile ? 3 : project.technologies.length).map((tech) => (
-                <span key={tech} className="tag">{tech}</span>
+                <span key={tech} className="tag bg-gray-100 text-gray-800">{tech}</span>
               ))}
               {isMobile && project.technologies.length > 3 && (
-                <span className="tag">+{project.technologies.length - 3}</span>
+                <span className="tag bg-gray-100 text-gray-800">+{project.technologies.length - 3}</span>
               )}
             </div>
           </div>

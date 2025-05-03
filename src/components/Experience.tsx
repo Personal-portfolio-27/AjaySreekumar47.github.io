@@ -8,6 +8,7 @@ interface TimelineItem {
   description: string;
   achievements: string[];
   technologies: string[];
+  logoUrl?: string;
 }
 
 const experiences: TimelineItem[] = [
@@ -21,7 +22,8 @@ const experiences: TimelineItem[] = [
       "Reduced inference latency by 80% via optimized data pipelines and RAG integration",
       "Developed a VS Code plugin that boosted developer productivity by 30+ hours/month"
     ],
-    technologies: ["LangChain", "Python", "Sentence Transformers", "Tiktoken", "Pydantic", "Lark", "FastAPI", "Docker", "Git", "VS Code API"]
+    technologies: ["LangChain", "Python", "Sentence Transformers", "Tiktoken", "Pydantic", "Lark", "FastAPI", "Docker", "Git", "VS Code API"],
+    logoUrl: "/lovable-uploads/7f3a93c9-f007-4606-a745-d2c2dbebd44b.png"
   },
   {
     company: "Los Alamos National Laboratory",
@@ -33,10 +35,11 @@ const experiences: TimelineItem[] = [
       "Improved translation accuracy of Fortran-to-C++ by 42% using reinforcement learning",
       "Built ViT-based models for scientific forecasting; enhanced forecasting accuracy by 20%"
     ],
-    technologies: ["PyTorch", "TensorFlow", "Vision Transformers", "CodeBLEU", "NumPy", "pandas", "SQL", "t-SNE", "UMAP", "Git"]
+    technologies: ["PyTorch", "TensorFlow", "Vision Transformers", "CodeBLEU", "NumPy", "pandas", "SQL", "t-SNE", "UMAP", "Git"],
+    logoUrl: "/lovable-uploads/3926183e-0908-4c50-9e55-408031bdb5e6.png"
   },
   {
-    company: "Accenture (India)",
+    company: "Accenture Technology",
     role: "Application Development Analyst",
     period: "Jun 2018 - Jun 2021",
     description: "Led data engineering and analytics solutions for Mondelez International to improve business operations.",
@@ -45,7 +48,8 @@ const experiences: TimelineItem[] = [
       "Built real-time streaming pipelines with Spark + Kafka + Azure Event Hubs",
       "Developed business dashboards with Tableau and AWS QuickSight, reducing reporting time by 90%"
     ],
-    technologies: ["Python", "PySpark", "Spark SQL", "Spark Streaming", "Kafka", "Azure Event Hubs", "SQL", "NLTK", "Tableau", "AWS QuickSight", "BigQuery", "Git"]
+    technologies: ["Python", "PySpark", "Spark SQL", "Spark Streaming", "Kafka", "Azure Event Hubs", "SQL", "NLTK", "Tableau", "AWS QuickSight", "BigQuery", "Git"],
+    logoUrl: "/lovable-uploads/55dd4af5-ea17-4614-a004-c52eaddc277a.png"
   }
 ];
 
@@ -64,8 +68,19 @@ const TimelineItem = ({ item, isLast }: { item: TimelineItem, isLast: boolean })
     
     {/* Content */}
     <div className="bg-card rounded-lg p-6 border border-border shadow-sm">
-      <div className="flex flex-wrap justify-between items-start mb-2">
-        <h3 className="text-xl font-bold text-foreground">{item.company}</h3>
+      <div className="flex flex-wrap md:flex-nowrap justify-between items-start mb-2">
+        <div className="flex items-center gap-3 mb-2 md:mb-0">
+          {item.logoUrl && (
+            <div className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0">
+              <img 
+                src={item.logoUrl} 
+                alt={`${item.company} logo`}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          )}
+          <h3 className="text-xl font-bold text-foreground">{item.company}</h3>
+        </div>
         <span className="text-sm text-muted-foreground bg-secondary px-2.5 py-1 rounded-full">{item.period}</span>
       </div>
       <h4 className="text-lg font-medium text-data-blue mb-3">{item.role}</h4>

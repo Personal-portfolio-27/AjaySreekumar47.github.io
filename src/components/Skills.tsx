@@ -1,3 +1,4 @@
+
 import {
   Code, Database, ServerCog, Brain, Atom, MessageSquareCode, Cloud, 
   Network, BarChart4, Github, AreaChart, FileSpreadsheet, Server, 
@@ -72,9 +73,9 @@ const skillsData: Skill[] = [
 ];
 
 const SkillItem = ({ skill }: { skill: Skill }) => (
-  <div className="flex items-center gap-1.5 p-1 rounded-md hover:bg-data-light/80 transition-colors">
-    <skill.icon className="h-3 w-3 text-data-blue flex-shrink-0" />
-    <span className="text-[11px] font-medium">{skill.name}</span>
+  <div className="flex items-center gap-2 p-1.5 rounded-md hover:bg-data-light/80 transition-colors">
+    <skill.icon className="h-4 w-4 text-data-blue flex-shrink-0" />
+    <span className="text-sm font-medium">{skill.name}</span>
   </div>
 );
 
@@ -83,8 +84,8 @@ const SkillCategory = ({ title, skills }: { title: string; skills: Skill[] }) =>
     <div className="p-2 border-b bg-data-light/30">
       <h3 className="text-xs font-semibold text-data-blue">{title}</h3>
     </div>
-    <CardContent className="p-2">
-      <div className="grid grid-cols-2 gap-0.5">
+    <CardContent className="p-3">
+      <div className="grid grid-cols-2 gap-1">
         {skills.map((skill) => (
           <SkillItem key={skill.name} skill={skill} />
         ))}
@@ -129,16 +130,16 @@ const Skills = () => {
         <div className="mt-4 p-2 bg-data-light/80 rounded-lg border border-data-blue/10">
           <h3 className="text-xs font-semibold mb-1.5 text-data-blue">Additional Expertise</h3>
           <div className="flex flex-wrap gap-1 justify-center">
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Data Visualization</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Statistical Analysis</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">NLP</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">LLMOps</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">CI/CD</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Deep Learning</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Time Series Analysis</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">ETL Pipelines</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Data Engineering</span>
-            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Anomaly Detection</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Data Visualization</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Statistical Analysis</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">NLP</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">LLMOps</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">CI/CD</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Deep Learning</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Time Series Analysis</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">ETL Pipelines</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Data Engineering</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Anomaly Detection</span>
           </div>
         </div>
       </div>

@@ -111,14 +111,26 @@ const Experience = () => {
         
         <div className="mt-12 bg-data-light p-6 rounded-lg border border-data-blue/10">
           <h3 className="text-xl font-bold mb-2">Education</h3>
-          <div className="flex flex-wrap justify-between items-start">
-            <div>
-              <h4 className="font-semibold">University of Arizona</h4>
-              <p className="text-muted-foreground">Master's in Data Science</p>
+          <div className="space-y-4">
+            <div className="flex flex-wrap justify-between items-start">
+              <div>
+                <h4 className="font-semibold">University of Arizona</h4>
+                <p className="text-muted-foreground">Master of Science, Data Science</p>
+              </div>
+              <div className="text-right">
+                <p className="font-medium">GPA: 4.0/4.0</p>
+                <p className="text-muted-foreground">2023 - 2025</p>
+              </div>
             </div>
-            <div className="text-right">
-              <p className="font-medium">GPA: 4.0/4.0</p>
-              <p className="text-muted-foreground">2021 - 2023</p>
+            
+            <div className="flex flex-wrap justify-between items-start">
+              <div>
+                <h4 className="font-semibold">Bachelor of Engineering</h4>
+                <p className="text-muted-foreground">Electronics & Communications Engineering</p>
+              </div>
+              <div className="text-right">
+                <p className="text-muted-foreground">Completed</p>
+              </div>
             </div>
           </div>
         </div>

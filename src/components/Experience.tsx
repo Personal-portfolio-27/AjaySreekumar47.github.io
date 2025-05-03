@@ -12,40 +12,40 @@ interface TimelineItem {
 
 const experiences: TimelineItem[] = [
   {
-    company: "NASA JPL & BAE Systems",
-    role: "Data Science Intern",
-    period: "May 2023 - Aug 2023",
-    description: "Developed NLP pipelines to extract and analyze technical documents for aerospace applications.",
+    company: "University of Arizona | NASA JPL | BAE Systems",
+    role: "Machine Learning Researcher",
+    period: "Jan 2025 - Present",
+    description: "Built an AI Copilot using open-source LLMs and LangChain to enhance developer productivity and code quality.",
     achievements: [
-      "Built LangChain-based document processing pipeline",
-      "Implemented Sentence Transformers for semantic search",
-      "Improved information retrieval accuracy by 32%"
+      "Built an AI Copilot using open-source LLMs (7B–13B) and LangChain, improving code generation accuracy by 90%",
+      "Reduced inference latency by 80% via optimized data pipelines and RAG integration",
+      "Developed a VS Code plugin that boosted developer productivity by 30+ hours/month"
     ],
-    technologies: ["LangChain", "Sentence Transformers", "Python", "HuggingFace", "FAISS", "AWS"]
+    technologies: ["LangChain", "Python", "Sentence Transformers", "Tiktoken", "Pydantic", "Lark", "FastAPI", "Docker", "Git", "VS Code API"]
   },
   {
-    company: "Los Alamos National Lab",
-    role: "Research Assistant",
-    period: "Jan 2023 - May 2023",
-    description: "Conducted research on Large Language Models and developed evaluation frameworks for code generation tasks.",
+    company: "Los Alamos National Laboratory",
+    role: "Data Science Intern – LLMOps",
+    period: "May 2024 - Aug 2024",
+    description: "Advanced LLM operations and scientific modeling through evaluation frameworks and multi-modal techniques.",
     achievements: [
-      "Implemented LLMOps practices for model deployment",
-      "Developed CodeBLEU evaluation metrics for code quality",
-      "Created UMAP visualizations for model embeddings"
+      "Engineered ML evaluation framework for 12 LLMs using CodeBLEU and stratified sampling",
+      "Improved translation accuracy of Fortran-to-C++ by 42% using reinforcement learning",
+      "Built ViT-based models for scientific forecasting; enhanced forecasting accuracy by 20%"
     ],
-    technologies: ["PyTorch", "LLMs", "CodeBLEU", "UMAP", "Docker", "MLflow"]
+    technologies: ["PyTorch", "TensorFlow", "Vision Transformers", "CodeBLEU", "NumPy", "pandas", "SQL", "t-SNE", "UMAP", "Git"]
   },
   {
-    company: "Accenture",
-    role: "Data Engineer",
-    period: "Jun 2021 - Dec 2022",
-    description: "Led the development of Spark-based streaming analytics solutions for real-time decision making.",
+    company: "Accenture (India)",
+    role: "Application Development Analyst",
+    period: "Jun 2018 - Jun 2021",
+    description: "Led data engineering and analytics solutions for Mondelez International to improve business operations.",
     achievements: [
-      "Built Spark streaming pipelines for high-volume data",
-      "Created interactive Tableau dashboards for business metrics",
-      "Reduced data processing latency by 65%"
+      "Created predictive models on CRM & transaction data; improved efficiency by 60%",
+      "Built real-time streaming pipelines with Spark + Kafka + Azure Event Hubs",
+      "Developed business dashboards with Tableau and AWS QuickSight, reducing reporting time by 90%"
     ],
-    technologies: ["Apache Spark", "Scala", "Kafka", "Tableau", "SQL", "Azure"]
+    technologies: ["Python", "PySpark", "Spark SQL", "Spark Streaming", "Kafka", "Azure Event Hubs", "SQL", "NLTK", "Tableau", "AWS QuickSight", "BigQuery", "Git"]
   }
 ];
 

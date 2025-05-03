@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,24 +32,27 @@ const Navbar = () => {
           AS
         </a>
 
-        <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
-              <li key={item}>
-                <a 
-                  href={`#${item.toLowerCase()}`}
-                  className="text-foreground/80 hover:text-data-blue transition-colors"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <nav className="hidden md:flex items-center space-x-8">
+          {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-foreground/80 hover:text-data-blue transition-colors"
+            >
+              {item}
+            </a>
+          ))}
+          <ThemeToggle />
         </nav>
 
-        <Button variant="outline" size="sm" asChild>
-          <a href="#contact">Get In Touch</a>
-        </Button>
+        <div className="flex items-center gap-2">
+          <div className="md:hidden">
+            <ThemeToggle />
+          </div>
+          <Button variant="outline" size="sm" asChild>
+            <a href="#contact">Get In Touch</a>
+          </Button>
+        </div>
       </div>
     </header>
   );

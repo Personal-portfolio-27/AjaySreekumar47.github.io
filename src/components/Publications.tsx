@@ -10,6 +10,7 @@ interface Publication {
   abstract: string;
   keywords: string[];
   link?: string;
+  image?: string;
 }
 
 const publicationsData: Publication[] = [
@@ -30,7 +31,8 @@ const publicationsData: Publication[] = [
       "Machine Learning",
       "Computational Linguistics"
     ],
-    link: "https://aclanthology.org/2025.aisd-main.6/"
+    link: "https://aclanthology.org/2025.aisd-main.6/",
+    image: "/placeholder.svg"
   }
 ];
 
@@ -39,9 +41,9 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
     <CardHeader className="pb-2 pt-4 px-4 bg-data-light/50 border-b border-data-blue/10">
       <div className="flex items-center gap-2 mb-1">
         <FileText className="h-4 w-4 text-data-blue" />
-        <h3 className="text-base font-semibold">{publication.title}</h3>
+        <h3 className="text-base font-semibold text-black">{publication.title}</h3>
       </div>
-      <div className="text-xs text-muted-foreground flex justify-between items-center gap-1 mt-1">
+      <div className="text-xs text-gray-600 flex justify-between items-center gap-1 mt-1">
         <div className="flex items-center gap-1">
           <BookOpen className="h-3 w-3" />
           <span>{publication.venue}, {publication.year}</span>
@@ -62,21 +64,21 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
     <CardContent className="p-4">
       <div className="flex items-center gap-1 mb-2">
         <Users className="h-3 w-3 text-data-blue flex-shrink-0" />
-        <p className="text-xs">{publication.authors}</p>
+        <p className="text-xs text-black">{publication.authors}</p>
       </div>
       
       <div className="mt-3">
-        <h4 className="text-xs font-semibold mb-1">Abstract:</h4>
-        <p className="text-xs leading-relaxed text-muted-foreground">{publication.abstract}</p>
+        <h4 className="text-xs font-semibold mb-1 text-black">Abstract:</h4>
+        <p className="text-xs leading-relaxed text-gray-600">{publication.abstract}</p>
       </div>
       
       <div className="mt-3">
-        <h4 className="text-xs font-semibold mb-1">Keywords:</h4>
+        <h4 className="text-xs font-semibold mb-1 text-black">Keywords:</h4>
         <div className="flex flex-wrap gap-1">
           {publication.keywords.map((keyword, index) => (
             <span 
               key={index} 
-              className="text-xs px-1.5 py-0.5 bg-white rounded-full border border-data-blue/20 shadow-sm"
+              className="text-xs px-1.5 py-0.5 bg-white rounded-full border border-data-blue/20 shadow-sm text-black"
             >
               {keyword}
             </span>
@@ -88,15 +90,42 @@ const PublicationCard = ({ publication }: { publication: Publication }) => (
 );
 
 const Publications = () => {
+  const llmCodeImage = "https://images.unsplash.com/photo-1498050108023-c5249f4df085";
+
   return (
     <section id="publications" className="py-8 bg-white">
       <div className="section-container py-8">
-        <h2 className="section-title mb-6">Publications</h2>
+        <h2 className="section-title mb-6 text-black">Publications</h2>
         
         <div className="grid gap-6">
           {publicationsData.map((publication, index) => (
             <PublicationCard key={index} publication={publication} />
           ))}
+        </div>
+        
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="rounded-lg overflow-hidden shadow-md">
+            <img 
+              src={llmCodeImage}
+              alt="Code related to Large Language Models" 
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4 bg-white">
+              <h3 className="text-lg font-semibold text-black">LLM Research</h3>
+              <p className="text-sm text-gray-600">Exploring advanced applications of language models in scientific computing</p>
+            </div>
+          </div>
+          <div className="rounded-lg overflow-hidden shadow-md">
+            <img 
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
+              alt="Programming with Large Language Models" 
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4 bg-white">
+              <h3 className="text-lg font-semibold text-black">Code Translation</h3>
+              <p className="text-sm text-gray-600">Leveraging LLMs for legacy code modernization and cross-platform development</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

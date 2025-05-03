@@ -26,6 +26,12 @@ const Projects = () => {
         ...project,
         logoUrl: "/lovable-uploads/55dd4af5-ea17-4614-a004-c52eaddc277a.png"  
       };
+    } else {
+      // Adding LLM-related images for other projects
+      return {
+        ...project,
+        imageUrl: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+      };
     }
     return project;
   });

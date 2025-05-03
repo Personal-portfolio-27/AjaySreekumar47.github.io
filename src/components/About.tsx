@@ -17,7 +17,7 @@ const About = () => {
           </div>
           
           {/* Right column - Content */}
-          <div>
+          <div className="flex flex-col justify-center h-full">
             <p className="mb-4">
               I'm a passionate Data Scientist and Machine Learning Engineer with experience developing practical solutions to complex problems at NASA JPL, BAE Systems, Los Alamos National Lab, and Accenture.
             </p>

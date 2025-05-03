@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, ArrowLeft } from "lucide-react";
@@ -132,10 +133,10 @@ const ProjectsPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-background">
-      <header className="fixed top-0 left-0 w-full bg-white/80 dark:bg-background/80 shadow-sm backdrop-blur-md py-3 z-50">
+    <div className="min-h-screen">
+      <header className="fixed top-0 left-0 w-full bg-white/80 shadow-sm backdrop-blur-md py-3 z-50">
         <div className="container flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-black dark:text-white hover:text-data-blue transition-colors">
+          <Link to="/" className="flex items-center gap-2 text-black hover:text-data-blue transition-colors">
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Home</span>
           </Link>
@@ -150,18 +151,18 @@ const ProjectsPage = () => {
       </header>
       
       <main className="container pt-24 pb-16">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2 text-black dark:text-white">My GitHub Projects</h1>
-        <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-3xl">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2 text-black">My GitHub Projects</h1>
+        <p className="text-gray-600 mb-8 max-w-3xl">
           Explore all my projects from GitHub, showcasing my work in machine learning, data science, and software development.
         </p>
         
         {loading ? (
           <div className="flex flex-col items-center justify-center min-h-[300px]">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-data-blue"></div>
-            <p className="mt-4 text-gray-600 dark:text-gray-300">Loading projects...</p>
+            <p className="mt-4 text-gray-600">Loading projects...</p>
           </div>
         ) : error ? (
-          <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 p-4 rounded-md">
+          <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-md">
             <p className="font-medium">Error loading projects</p>
             <p className="text-sm mt-1">{error}</p>
           </div>

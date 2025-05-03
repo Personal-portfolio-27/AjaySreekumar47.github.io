@@ -51,7 +51,7 @@ const Projects = () => {
   });
   
   return (
-    <section id="projects" className="py-10 sm:py-16 dark:bg-background">
+    <section id="projects" className="py-10 sm:py-16">
       <div className="section-container">
         <h2 className="section-title">Featured Projects</h2>
         <p className="max-w-3xl mb-6 sm:mb-10 text-sm sm:text-base text-muted-foreground">

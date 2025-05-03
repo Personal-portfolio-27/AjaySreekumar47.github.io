@@ -72,22 +72,25 @@ const skillsData: Skill[] = [
   { name: 'Malayalam', icon: Languages, category: 'otherSkills' },
 ];
 
-const SkillItem = ({ skill }: { skill: Skill }) => (
-  <div className="flex items-center gap-2 p-1.5 rounded-md hover:bg-data-light/80 transition-colors">
+const SkillItem = ({ skill, index }: { skill: Skill; index: number }) => (
+  <div 
+    className="flex items-center gap-2 p-1.5 rounded-md hover:bg-data-light/80 transition-colors animate-fade-in" 
+    style={{ animationDelay: `${index * 0.05}s` }}
+  >
     <skill.icon className="h-4 w-4 text-data-blue flex-shrink-0" />
     <span className="text-sm font-medium">{skill.name}</span>
   </div>
 );
 
-const SkillCategory = ({ title, skills }: { title: string; skills: Skill[] }) => (
-  <Card className="h-full border-data-blue/10 shadow-sm">
+const SkillCategory = ({ title, skills, index }: { title: string; skills: Skill[]; index: number }) => (
+  <Card className="h-full border-data-blue/10 shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
     <div className="p-2 border-b bg-data-light/30">
       <h3 className="text-xs font-semibold text-data-blue">{title}</h3>
     </div>
     <CardContent className="p-3">
       <div className="grid grid-cols-2 gap-1">
-        {skills.map((skill) => (
-          <SkillItem key={skill.name} skill={skill} />
+        {skills.map((skill, idx) => (
+          <SkillItem key={skill.name} skill={skill} index={idx} />
         ))}
       </div>
     </CardContent>
@@ -112,34 +115,34 @@ const Skills = () => {
   return (
     <section id="skills" className="py-6 bg-secondary/50">
       <div className="section-container py-6">
-        <h2 className="section-title mb-4">Technical Skills</h2>
+        <h2 className="section-title mb-4 animate-slide-from-left">Technical Skills</h2>
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
-          <SkillCategory title="Languages & Technical Skills" skills={categories.languages} />
-          <SkillCategory title="Big Data Technologies" skills={categories.bigData} />
-          <SkillCategory title="Cloud Services" skills={categories.cloud} />
-          <SkillCategory title="Data Engineering" skills={categories.dataEng} />
-          <SkillCategory title="Analytics Tools" skills={categories.analytics} />
-          <SkillCategory title="Machine Learning" skills={categories.machinelearning} />
-          <SkillCategory title="Database Technologies" skills={categories.databases} />
-          <SkillCategory title="Data Visualization" skills={categories.tools} />
-          <SkillCategory title="Version Control" skills={categories.version} />
-          <SkillCategory title="Languages" skills={categories.otherSkills} />
+          <SkillCategory title="Languages & Technical Skills" skills={categories.languages} index={0} />
+          <SkillCategory title="Big Data Technologies" skills={categories.bigData} index={1} />
+          <SkillCategory title="Cloud Services" skills={categories.cloud} index={2} />
+          <SkillCategory title="Data Engineering" skills={categories.dataEng} index={3} />
+          <SkillCategory title="Analytics Tools" skills={categories.analytics} index={4} />
+          <SkillCategory title="Machine Learning" skills={categories.machinelearning} index={5} />
+          <SkillCategory title="Database Technologies" skills={categories.databases} index={6} />
+          <SkillCategory title="Data Visualization" skills={categories.tools} index={7} />
+          <SkillCategory title="Version Control" skills={categories.version} index={8} />
+          <SkillCategory title="Languages" skills={categories.otherSkills} index={9} />
         </div>
 
-        <div className="mt-4 p-2 bg-data-light/80 rounded-lg border border-data-blue/10">
+        <div className="mt-4 p-2 bg-data-light/80 rounded-lg border border-data-blue/10 animate-fade-in" style={{ animationDelay: "1s" }}>
           <h3 className="text-xs font-semibold mb-1.5 text-data-blue">Additional Expertise</h3>
           <div className="flex flex-wrap gap-1 justify-center">
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Data Visualization</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Statistical Analysis</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">NLP</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">LLMOps</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">CI/CD</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Deep Learning</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Time Series Analysis</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">ETL Pipelines</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Data Engineering</span>
-            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm">Anomaly Detection</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Data Visualization</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Statistical Analysis</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">NLP</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">LLMOps</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">CI/CD</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Deep Learning</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Time Series Analysis</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">ETL Pipelines</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Data Engineering</span>
+            <span className="px-1.5 py-0.5 bg-white text-[11px] rounded-full border border-data-blue/20 shadow-sm hover:bg-data-light transition-colors">Anomaly Detection</span>
           </div>
         </div>
       </div>

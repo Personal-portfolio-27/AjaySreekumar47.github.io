@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { FileText, Users, BookOpen } from "lucide-react";
+import { FileText, Users, BookOpen, ExternalLink } from "lucide-react";
 
 interface Publication {
   title: string;
@@ -9,6 +9,7 @@ interface Publication {
   year: string;
   abstract: string;
   keywords: string[];
+  link?: string;
 }
 
 const publicationsData: Publication[] = [
@@ -28,20 +29,34 @@ const publicationsData: Publication[] = [
       "Code translation",
       "Machine Learning",
       "Computational Linguistics"
-    ]
+    ],
+    link: "https://aclanthology.org/2025.aisd-main.6/"
   }
 ];
 
 const PublicationCard = ({ publication }: { publication: Publication }) => (
-  <Card className="border-data-blue/10 shadow-sm hover:shadow-md transition-all duration-300">
+  <Card className="border-data-blue/10 shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in">
     <CardHeader className="pb-2 pt-4 px-4 bg-data-light/50 border-b border-data-blue/10">
       <div className="flex items-center gap-2 mb-1">
         <FileText className="h-4 w-4 text-data-blue" />
         <h3 className="text-base font-semibold">{publication.title}</h3>
       </div>
-      <div className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
-        <BookOpen className="h-3 w-3" />
-        <span>{publication.venue}, {publication.year}</span>
+      <div className="text-xs text-muted-foreground flex justify-between items-center gap-1 mt-1">
+        <div className="flex items-center gap-1">
+          <BookOpen className="h-3 w-3" />
+          <span>{publication.venue}, {publication.year}</span>
+        </div>
+        {publication.link && (
+          <a 
+            href={publication.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-data-blue hover:underline flex items-center gap-1 text-xs"
+          >
+            <ExternalLink className="h-3 w-3" />
+            View Publication
+          </a>
+        )}
       </div>
     </CardHeader>
     <CardContent className="p-4">

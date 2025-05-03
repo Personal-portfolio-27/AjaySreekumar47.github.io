@@ -4,7 +4,7 @@ import { Github, Linkedin, Download } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center pt-16 relative overflow-hidden">
+    <section id="hero" className="min-h-[90vh] flex items-center pt-8 relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0" style={{
@@ -29,10 +29,10 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-wrap gap-4 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <Button asChild>
+            <Button asChild className="animate-bounce hover:animate-none">
               <a href="#contact">Contact Me</a>
             </Button>
-            <Button variant="outline" asChild>
+            <Button variant="outline" asChild className="hover-scale">
               <a href="#projects">View Projects</a>
             </Button>
           </div>
@@ -42,7 +42,7 @@ const Hero = () => {
               href="https://github.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-secondary hover:bg-secondary/80 transition-colors"
+              className="p-2 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-110"
               aria-label="GitHub"
             >
               <Github className="h-5 w-5" />
@@ -51,7 +51,7 @@ const Hero = () => {
               href="https://linkedin.com/in/yourusername" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-secondary hover:bg-secondary/80 transition-colors"
+              className="p-2 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-110"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />

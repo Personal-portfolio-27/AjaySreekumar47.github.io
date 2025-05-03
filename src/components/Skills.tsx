@@ -92,9 +92,9 @@ const skillsData: Skill[] = [
 ];
 
 const SkillItem = ({ skill }: { skill: Skill }) => (
-  <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg border border-border shadow-sm card-hover">
-    <skill.icon className="h-10 w-10 mb-2 text-data-blue" />
-    <span className="text-sm font-medium">{skill.name}</span>
+  <div className="flex items-center gap-2 p-2 bg-white rounded-lg border border-border shadow-sm card-hover">
+    <skill.icon className="h-5 w-5 text-data-blue flex-shrink-0" />
+    <span className="text-sm">{skill.name}</span>
   </div>
 );
 
@@ -114,41 +114,35 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-16 bg-secondary/50">
+    <section id="skills" className="py-12 bg-secondary/50">
       <div className="section-container">
         <h2 className="section-title">Technical Skills</h2>
         
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-xl font-semibold mb-4">Languages & Technical Skills</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <h3 className="text-lg font-semibold mb-3">Languages & Technical Skills</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.languages.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
             </div>
-          </div>
           
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Big Data Technologies</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <h3 className="text-lg font-semibold mt-4 mb-3">Big Data Technologies</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.bigData.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
             </div>
-          </div>
           
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Cloud & Infrastructure</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <h3 className="text-lg font-semibold mt-4 mb-3">Cloud & Infrastructure</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.cloud.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Data Engineering</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            
+            <h3 className="text-lg font-semibold mt-4 mb-3">Data Engineering</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.dataEng.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
@@ -156,53 +150,43 @@ const Skills = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold mb-4">Analytics Tools</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <h3 className="text-lg font-semibold mb-3">Analytics Tools</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.analytics.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Machine Learning Frameworks</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            
+            <h3 className="text-lg font-semibold mt-4 mb-3">Machine Learning Frameworks</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.machinelearning.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Database Technologies</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            
+            <h3 className="text-lg font-semibold mt-4 mb-3">Database Technologies</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.databases.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Data Visualization</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            
+            <h3 className="text-lg font-semibold mt-4 mb-3">Data Visualization</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.tools.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Version Control</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            
+            <h3 className="text-lg font-semibold mt-4 mb-3">Version Control</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.version.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Languages</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            
+            <h3 className="text-lg font-semibold mt-4 mb-3">Languages</h3>
+            <div className="grid grid-cols-2 gap-2">
               {categories.otherSkills.map((skill) => (
                 <SkillItem key={skill.name} skill={skill} />
               ))}
@@ -210,8 +194,8 @@ const Skills = () => {
           </div>
         </div>
 
-        <div className="mt-12 p-6 bg-data-light rounded-lg border border-data-blue/10 text-center">
-          <h3 className="text-xl font-semibold mb-2">Additional Expertise</h3>
+        <div className="mt-8 p-4 bg-data-light rounded-lg border border-data-blue/10 text-center">
+          <h3 className="text-lg font-semibold mb-2">Additional Expertise</h3>
           <div className="flex flex-wrap justify-center gap-2">
             <span className="tag">Data Visualization</span>
             <span className="tag">Statistical Analysis</span>

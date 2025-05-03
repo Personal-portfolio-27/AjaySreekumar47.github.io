@@ -22,9 +22,7 @@ const Hero = () => {
             Data Scientist with Expertise in Machine Learning, NLP, LLMOps, and Predictive Analytics | Master's in Data Science (4.0 GPA), University of Arizona
           </h2>
           
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Data Scientist with Expertise in Machine Learning, NLP, LLMOps, and Predictive Analytics | Master's in Data Science (4.0 GPA), University of Arizona
-          </p>
+          {/* Removed the paragraph with duplicate information */}
           
           <div className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <Button asChild className="animate-bounce hover:animate-none">

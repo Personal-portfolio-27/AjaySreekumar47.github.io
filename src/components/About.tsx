@@ -3,21 +3,21 @@ import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
-    <section id="about" className="bg-white py-16">
-      <div className="section-container">
+    <section id="about" className="bg-white py-8">
+      <div className="section-container py-8">
         <h2 className="section-title">About Me</h2>
         
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-6 items-center">
           {/* Left column - Image */}
-          <div className="bg-data-light rounded-lg p-4 border border-data-blue/10 flex justify-center">
+          <div className="bg-data-light rounded-lg p-3 border border-data-blue/10 flex justify-center">
             <div className="aspect-square w-3/4 rounded-lg bg-gradient-to-br from-data-blue/10 to-data-blue/5 flex items-center justify-center">
               {/* Placeholder for profile image */}
-              <div className="text-8xl font-bold text-data-blue/30">AS</div>
+              <div className="text-7xl font-bold text-data-blue/30">AS</div>
             </div>
           </div>
           
           {/* Right column - Content */}
-          <div className="flex flex-col justify-center space-y-4">
+          <div className="flex flex-col justify-center space-y-3">
             <p>
               I'm a passionate <span className="highlight">Data Scientist</span> and <span className="highlight">Machine Learning Engineer</span> with experience developing practical solutions to complex problems at NASA JPL, BAE Systems, Los Alamos National Lab, and Accenture.
             </p>
@@ -36,7 +36,7 @@ const About = () => {
               <span className="highlight"> real-time analytics</span> systems.
             </p>
             
-            <div className="flex flex-wrap gap-3 mt-2">
+            <div className="flex flex-wrap gap-3 mt-1">
               <Button variant="outline" asChild>
                 <a href="#experience">View Experience</a>
               </Button>

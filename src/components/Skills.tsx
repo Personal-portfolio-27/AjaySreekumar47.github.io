@@ -1,31 +1,8 @@
-
 import {
-  Code,
-  Database,
-  ServerCog,
-  Brain,
-  Atom,
-  MessageSquareCode,
-  Cloud,
-  Network,
-  BarChart4,
-  Github,
-  AreaChart,
-  FileSpreadsheet,
-  Server,
-  LineChart,
-  GitBranch,
-  Terminal,
-  BarChart3,
-  Boxes,
-  Factory,
-  Warehouse,
-  PieChart,
-  Languages,
-  CreditCard,
-  CircuitBoard,
-  Clock,
-  Share2,
+  Code, Database, ServerCog, Brain, Atom, MessageSquareCode, Cloud, 
+  Network, BarChart4, Github, AreaChart, FileSpreadsheet, Server, 
+  LineChart, GitBranch, Terminal, BarChart3, Boxes, Factory, 
+  Warehouse, PieChart, Languages, CircuitBoard, Clock, Share2
 } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -95,19 +72,19 @@ const skillsData: Skill[] = [
 ];
 
 const SkillItem = ({ skill }: { skill: Skill }) => (
-  <div className="flex items-center gap-1 p-1 rounded-md hover:bg-data-light transition-colors">
-    <skill.icon className="h-3.5 w-3.5 text-data-blue flex-shrink-0" />
-    <span className="text-xs font-medium">{skill.name}</span>
+  <div className="flex items-center gap-1.5 p-1 rounded-md hover:bg-data-light/80 transition-colors">
+    <skill.icon className="h-3 w-3 text-data-blue flex-shrink-0" />
+    <span className="text-[11px] font-medium">{skill.name}</span>
   </div>
 );
 
 const SkillCategory = ({ title, skills }: { title: string; skills: Skill[] }) => (
-  <Card className="h-full border-data-blue/10 shadow-sm hover:shadow-md transition-all duration-300">
-    <div className="p-3 border-b bg-data-light/50">
-      <h3 className="text-sm font-semibold text-data-blue">{title}</h3>
+  <Card className="h-full border-data-blue/10 shadow-sm">
+    <div className="p-2 border-b bg-data-light/30">
+      <h3 className="text-xs font-semibold text-data-blue">{title}</h3>
     </div>
-    <CardContent className="p-3 pt-2">
-      <div className="grid grid-cols-2 gap-1">
+    <CardContent className="p-2">
+      <div className="grid grid-cols-2 gap-0.5">
         {skills.map((skill) => (
           <SkillItem key={skill.name} skill={skill} />
         ))}
@@ -132,11 +109,11 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-10 bg-secondary/50">
-      <div className="section-container">
-        <h2 className="section-title mb-8">Technical Skills</h2>
+    <section id="skills" className="py-6 bg-secondary/50">
+      <div className="section-container py-6">
+        <h2 className="section-title mb-4">Technical Skills</h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
           <SkillCategory title="Languages & Technical Skills" skills={categories.languages} />
           <SkillCategory title="Big Data Technologies" skills={categories.bigData} />
           <SkillCategory title="Cloud Services" skills={categories.cloud} />
@@ -149,19 +126,19 @@ const Skills = () => {
           <SkillCategory title="Languages" skills={categories.otherSkills} />
         </div>
 
-        <div className="mt-6 p-4 bg-data-light rounded-lg border border-data-blue/10">
-          <h3 className="text-sm font-semibold mb-2 text-data-blue">Additional Expertise</h3>
-          <div className="flex flex-wrap gap-2 justify-center">
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">Data Visualization</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">Statistical Analysis</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">NLP</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">LLMOps</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">CI/CD</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">Deep Learning</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">Time Series Analysis</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">ETL Pipelines</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">Data Engineering</span>
-            <span className="px-2 py-0.5 bg-white text-xs rounded-full border border-data-blue/20 shadow-sm">Anomaly Detection</span>
+        <div className="mt-4 p-2 bg-data-light/80 rounded-lg border border-data-blue/10">
+          <h3 className="text-xs font-semibold mb-1.5 text-data-blue">Additional Expertise</h3>
+          <div className="flex flex-wrap gap-1 justify-center">
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Data Visualization</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Statistical Analysis</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">NLP</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">LLMOps</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">CI/CD</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Deep Learning</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Time Series Analysis</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">ETL Pipelines</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Data Engineering</span>
+            <span className="px-1.5 py-0.5 bg-white text-[10px] rounded-full border border-data-blue/20 shadow-sm">Anomaly Detection</span>
           </div>
         </div>
       </div>

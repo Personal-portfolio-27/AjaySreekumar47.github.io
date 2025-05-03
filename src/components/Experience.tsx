@@ -129,7 +129,7 @@ const Experience = () => {
                 <p className="text-muted-foreground">Electronics & Communications Engineering</p>
               </div>
               <div className="text-right">
-                <p className="text-muted-foreground">Completed</p>
+                <p className="text-muted-foreground">2014 - 2018</p>
               </div>
             </div>
           </div>
